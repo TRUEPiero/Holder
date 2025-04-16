@@ -1,7 +1,5 @@
 <template>
-    <div class="mainpage">
-        <h1 v-if="projectName">{{ projectName }}</h1>
-    </div>
+    {{ projectName }}
 </template>
 
 <script>
@@ -26,12 +24,18 @@ export default {
         }
     },
 
+    //После загрузки страницы
     mounted() {
-        this.getProject()
+        this.projectName = 'Тут будет название проекта'
     },
+
     //Выполняется после обновление виртуального DOM
     updated() {
         this.getProject()
+    },
+
+    created(){
+        console.log("Проект");
     },
 
     //Вычисляемые значения
